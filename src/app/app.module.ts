@@ -8,13 +8,15 @@ import { ShowComponent } from './show/show.component';
 import { InsertComponent } from './insert/insert.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BerandaComponent,
     ShowComponent,
-    InsertComponent
+    InsertComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

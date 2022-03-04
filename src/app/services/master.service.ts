@@ -17,4 +17,7 @@ export class MasterService {
   saveCategory(data: Category): Observable<any>{
     return this.http.post(environment.baseUrl+'/input', data).pipe(map(data => data))
   }
+  updateCategory(data: Category): Observable<any>{
+    return this.http.post(environment.baseUrl+'/update/{id}', data).pipe(map(data => data))
+  }
 }
