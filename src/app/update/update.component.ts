@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {MasterService} from "../services/master.service";
 import {Category} from "../model/category.model";
@@ -10,6 +10,7 @@ import {Category} from "../model/category.model";
 })
 export class UpdateComponent implements OnInit {
   formCategory!: FormGroup;
+  list!: Category
 
   constructor(private formBuild: FormBuilder, private mast: MasterService) {
   }
@@ -23,19 +24,13 @@ export class UpdateComponent implements OnInit {
     })
   }
 
-  update(): void {
-    let category = <Category>{};
-    category.category_id = this.formCategory.controls['category_id'].value
-    category.department_id = this.formCategory.controls['department_id'].value
-    category.name = this.formCategory.controls['name'].value
-    category.description = this.formCategory.controls['description'].value
-    this.mast.updateCategory(category).subscribe({
-      next: hasil => {
-        alert('Update berhasil')
-      },
-      error: err => {
-        console.log(err)
-      }
-    });
-  }
+
+  // updateCategory(id: number) {
+  //   this.mast.updateCategory(id)
+  //     .subscribe(
+  //       data => {
+  //         console.log(data);
+  //       },
+  //       error => console.log(error));
+  // }
 }

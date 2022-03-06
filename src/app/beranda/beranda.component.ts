@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Category} from "../model/category.model";
 import {MasterService} from "../services/master.service";
+import {error} from "@angular/compiler/src/util";
+import {literal} from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: 'app-beranda',
@@ -9,8 +11,8 @@ import {MasterService} from "../services/master.service";
   styleUrls: ['./beranda.component.css']
 })
 export class BerandaComponent implements OnInit {
-
   list!: Category[]
+
 
   constructor(private mast: MasterService) { }
 
@@ -24,4 +26,14 @@ export class BerandaComponent implements OnInit {
       }
     })
   }
+
+  deleteCategory(id: number) {
+    this.mast.deleteCategory(id)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));
+  }
+
 }

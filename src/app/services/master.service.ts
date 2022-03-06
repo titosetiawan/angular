@@ -17,7 +17,13 @@ export class MasterService {
   saveCategory(data: Category): Observable<any>{
     return this.http.post(environment.baseUrl+'/input', data).pipe(map(data => data))
   }
-  updateCategory(data: Category): Observable<any>{
-    return this.http.post(environment.baseUrl+'/update/{id}', data).pipe(map(data => data))
+
+  updateCategory(id: number, value: any): Observable<any>{
+    return this.http.put(environment.baseUrl+`/update/${id}`, value);
   }
+
+  deleteCategory(id: number): Observable<any> {
+    return this.http.delete(environment.baseUrl+`/delete/${id}`, { responseType: 'text' });
+  }
+
 }

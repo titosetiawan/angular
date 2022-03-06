@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {BerandaComponent} from "./beranda/beranda.component";
 import {ShowComponent} from "./show/show.component";
 import {InsertComponent} from "./insert/insert.component";
+import {UpdateComponent} from "./update/update.component";
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
 
   {
     path  : 'insert', component:InsertComponent
+  },
+  {
+    path: 'update/:id',  component:UpdateComponent
   }
 ];
 

@@ -13,6 +13,7 @@
         <th>Dept ID</th>
         <th>Name</th>
         <th>Description</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
@@ -21,6 +22,10 @@
         <td>{{ id.department_id }}</td>
         <td>{{ id.name }}</td>
         <td>{{ id.description }}</td>
+        <td>
+          <button routerLink="/update/{{id.category_id}}">Update</button>
+          <button (click)="deleteCategory(id.category_id)">Delete</button>
+        </td>
       </tr>
       </tbody>
     </table>

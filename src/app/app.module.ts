@@ -9,6 +9,7 @@ import { InsertComponent } from './insert/insert.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UpdateComponent } from './update/update.component';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UpdateComponent } from './update/update.component';
     BerandaComponent,
     ShowComponent,
     InsertComponent,
-    UpdateComponent
+    UpdateComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
