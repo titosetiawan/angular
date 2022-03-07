@@ -16,3 +16,10 @@
     font-size: 3.5rem;
   }
 }
+
+input.ng-invalid{
+  border: 1px solid red;
+}
+span.error-block{
+  color: red;
+}
