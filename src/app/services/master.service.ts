@@ -15,11 +15,16 @@ export class MasterService {
     return this.http.get(environment.baseUrl+'/list').pipe(map(data => data))
   }
   saveCategory(data: Category): Observable<any>{
-    return this.http.post(environment.baseUrl+'/input', data).pipe(map(data => data))
+    let url = '/insert';
+    return this.http.post(environment.baseUrl+url, data).pipe(map(data => data))
+  }
+  updateCategory(data: Category): Observable<any>{
+    let url = '/update';
+    return this.http.post(environment.baseUrl+url, data).pipe(map(data => data))
   }
 
-  updateCategory(id: number, value: any): Observable<any>{
-    return this.http.put(environment.baseUrl+`/update/${id}`, value);
+  getCategoryId(id : number): Observable<any>{
+    return this.http.get(environment.baseUrl+'/findById/'+id,).pipe(map(data => data))
   }
 
   deleteCategory(id: number): Observable<any> {
