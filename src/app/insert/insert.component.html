@@ -13,65 +13,47 @@
         <label for="caregory_id">Category ID</label>
         <input type="text" class="form-control" id="caregory_id" aria-describedby="emailHelp"
                placeholder="Enter Category ID" formControlName="category_id">
-        <span *ngIf="!formCategory.get('category_id')?.valid
-     && formCategory.get('category_id')?.touched"
+        <span *ngIf="!formCategory.get('category_id')?.valid && formCategory.get('category_id')?.touched"
               class="error-block">
-       <span *ngIf="formCategory.get('category_id')?.errors?.['required']" >
-         Nama Wajib di isi ya
-       </span>
-    <span *ngIf="!formCategory.get('category_id')?.errors?.['required']
-        && formCategory.get('category_id')?.errors?.['blankspaces']" >
-      category ID Wajib diisi
-      </span>
-    </span>
+        <span *ngIf="!formCategory.get('category_id')?.errors?.['minlength']"
+              class="error-block">
+              Panjang Minimal 1
+        </span>
+          </span>
       </div>
       <div class="form-group">
         <label for="department_id">Department ID</label>
         <input type="text" class="form-control" id="department_id" aria-describedby="emailHelp"
                placeholder="Enter Department ID" formControlName="department_id">
-        <span *ngIf="!formCategory.get('department_id')?.valid
-     && formCategory.get('department_id')?.touched"
+        <span *ngIf="!formCategory.get('department_id')?.valid && formCategory.get('department_id')?.touched"
               class="error-block">
-       <span *ngIf="formCategory.get('department_id')?.errors?.['required']" >
-         Nama Wajib di isi ya
-       </span>
-    <span *ngIf="!formCategory.get('department_id')?.errors?.['required']
-        && formCategory.get('department_id')?.errors?.['blankspaces']" >
-      category ID Wajib diisi
-      </span>
-    </span>
+        <span *ngIf="!formCategory.get('department_id')?.errors?.['minlength']"
+              class="error-block">
+              Panjang Minimal 1
+        </span>
+          </span>
       </div>
       <div class="form-group">
         <label for="name">NAMA</label>
         <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
                placeholder="Enter Your Name" formControlName="name">
-        <span *ngIf="!formCategory.get('name')?.valid
-     && formCategory.get('name')?.touched"
+        <span *ngIf="!formCategory.get('name')?.valid && formCategory.get('name')?.touched" class="error-block">
+        <span *ngIf="!formCategory.get('name')?.errors?.['minlength']"
               class="error-block">
-       <span *ngIf="formCategory.get('name')?.errors?.['required']" >
-         Nama Wajib di isi ya
-       </span>
-    <span *ngIf="!formCategory.get('name')?.errors?.['required']
-        && formCategory.get('name')?.errors?.['blankspaces']" >
-      category ID Wajib diisi
-      </span>
-    </span>
+              Panjang Minimal 3
+        </span>
+          </span>
       </div>
       <div class="form-group">
         <label for="description">Keterangan</label>
         <textarea class="form-control" id="description" aria-describedby="emailHelp"
                   placeholder="Input Description" formControlName="description"></textarea>
-        <span *ngIf="!formCategory.get('description')?.valid
-     && formCategory.get('description')?.touched"
+        <span *ngIf="!formCategory.get('description')?.valid && formCategory.get('description')?.touched" class="error-block">
+        <span *ngIf="!formCategory.get('description')?.errors?.['minlength']"
               class="error-block">
-       <span *ngIf="formCategory.get('description')?.errors?.['required']">
-         Nama Wajib di isi ya
-       </span>
-    <span *ngIf="!formCategory.get('description')?.errors?.['required']
-        && formCategory.get('description')?.errors?.['blankspaces']">
-      category ID Wajib diisi
-      </span>
-    </span>
+              Panjang Minimal 3
+        </span>
+          </span>
       </div>
 
       <div class="form-check">

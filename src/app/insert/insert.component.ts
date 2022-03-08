@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MasterService} from "../services/master.service";
 import {Category} from "../model/category.model";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -13,22 +13,22 @@ export class InsertComponent implements OnInit {
   formCategory!: FormGroup;
   id!: number;
 
-  blankspaces(control: FormControl):{[s:string]: boolean}{
-    if (control.value != null && control.value.trim().length === 0 ){
-      return {'blankspaces': true};
-    }
-    return {'blankspaces': false};
-  }
+  // blankspaces(control: FormControl):{[s:string]: boolean} | null{
+  //   if (control.value != null && ty control.value.trim().length === 0 ){
+  //     return {'blankspaces': true};
+  //   }
+  //   return null;
+  // }
 
   constructor(private formBuild: FormBuilder,
               private mast: MasterService,
               private router: Router,
               private route: ActivatedRoute) {
     this.formCategory = this.formBuild.group({
-      'category_id': new FormControl(null, [Validators.required, this.blankspaces]),
-      'department_id': new FormControl(null, [Validators.required, this.blankspaces]),
-      'name': new FormControl(null, [Validators.required, this.blankspaces]),
-      'description': new FormControl(null, [Validators.required, this.blankspaces])
+      'category_id': new FormControl(null, [Validators.required, Validators.minLength(1)]),
+      'department_id': new FormControl(null, [Validators.required, Validators.minLength(1)]),
+      'name': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      'description': new FormControl(null, [Validators.required, Validators.minLength(3)])
     })
   }
 
@@ -50,6 +50,8 @@ export class InsertComponent implements OnInit {
   }
 
   simpan(): void {
+    console.log(this.formCategory.controls)
+    console.log(this.formCategory.valid)
     if (this.formCategory.valid) {
       let category = <Category>{};
       category.category_id = this.formCategory.controls['category_id'].value
@@ -86,7 +88,7 @@ export class InsertComponent implements OnInit {
       this.mast.updateCategory(category).subscribe({
         next: hasil => {
           alert('update berhasil')
-          this.router.navigateByUrl('/list')
+          this.router.navigateByUrl('/home')
         },
         error: err => {
           console.log(err)
