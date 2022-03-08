@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MasterService} from "../services/master.service";
 import {Category} from "../model/category.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-insert',
@@ -20,7 +21,8 @@ export class InsertComponent implements OnInit {
   //   return null;
   // }
 
-  constructor(private formBuild: FormBuilder,
+  constructor(private toastr: ToastrService,
+              private formBuild: FormBuilder,
               private mast: MasterService,
               private router: Router,
               private route: ActivatedRoute) {
@@ -63,15 +65,28 @@ export class InsertComponent implements OnInit {
       }
       this.mast.saveCategory(category).subscribe({
         next: hasil => {
-          alert('simpan berhasil')
+          // alert('simpan berhasil')
+          this.toastr.success(hasil.status, 'simpan berhasil')
           this.router.navigateByUrl('/update/' + category.category_id)
         },
         error: err => {
-          console.log(err)
+          const pesan: any[] = err.error.status;
+          let msg = '';
+          for (let i = 0; i < pesan.length; i++) {
+            msg += pesan[i].field+ " : " + pesan[i].defaultMessage +"\n";
+          }
+          console.log(msg)
+          this.toastr.error(msg, 'Error!', {
+            positionClass:'toast-top-center'
+          })
         }
       });
     } else {
-      alert("Form harus terisi semua")
+      // alert("Form harus terisi semua")
+      this.toastr.error("Form harus terisi semua", "GAGAL!!", {
+        positionClass: 'toast-top-center'
+      })
+
     }
   }
 
