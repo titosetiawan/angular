@@ -30,5 +30,4 @@ export class MasterService {
   deleteCategory(id: number): Observable<any> {
     return this.http.delete(environment.baseUrl+`/delete/${id}`, { responseType: 'text' });
   }
-
 }

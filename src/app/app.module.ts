@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import {ToastNoAnimationModule, ToastrModule} from "ngx-toastr";
+import { CategoryindukComponent } from './categoryinduk/categoryinduk.component';
+import { CategorychildComponent } from './categorychild/categorychild.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {ToastNoAnimationModule, ToastrModule} from "ngx-toastr";
     ShowComponent,
     InsertComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    CategoryindukComponent,
+    CategorychildComponent
   ],
   imports: [
     BrowserModule,

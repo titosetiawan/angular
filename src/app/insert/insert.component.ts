@@ -76,6 +76,7 @@ export class InsertComponent implements OnInit {
             msg += pesan[i].field+ " : " + pesan[i].defaultMessage +"\n";
           }
           console.log(msg)
+          console.log(msg)
           this.toastr.error(msg, 'Error!', {
             positionClass:'toast-top-center'
           })

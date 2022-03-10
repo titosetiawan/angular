@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {BerandaComponent} from "./beranda/beranda.component";
 import {ShowComponent} from "./show/show.component";
 import {InsertComponent} from "./insert/insert.component";
-import {UpdateComponent} from "./update/update.component";
+import {CategoryindukComponent} from "./categoryinduk/categoryinduk.component";
 
 const routes: Routes = [
   {
@@ -18,8 +18,11 @@ const routes: Routes = [
   },
   {
     path: 'update/:id',  component:InsertComponent
+  },
+  {
+    path: 'induk', component: CategoryindukComponent
   }
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
